@@ -1,0 +1,19 @@
+<div class="container d-flex flex-column">
+  <label for="Autor">Autor</label>
+  <input type="text" id="Autor" [(ngModel)]="Book.author" style="width:250px;">
+
+  <label for="Nazwa książki">Nazwa książki</label>
+  <input type="text" id="Nazwa książki" [(ngModel)]="Book.name" style="width:250px;">
+
+  <label for="Rok wydania">Rok wydania</label>
+  <input type="text" id="Rok wydania" [(ngModel)]="Book.date" style="width:250px;">
+
+  <label for="Gatunek">Gatunek</label>
+  <input type="text" id="Gatunek" [(ngModel)]="Book.type" style="width:250px;">
+
+  <a class ="btn btn-info my-3" (click)="addBook(Book.author, Book.name, Book.date, Book.type)" style="width:250px;">Dodaj</a>
+  <a class ="btn btn-info my-3" style="width:250px;">pokaż</a>
+  <div class="alert alert-info">
+    {{ this.alert.message  }}
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="books != undefined" class="container">
+  <div class="row title-card">
+    <div class="col-3 text-center">
+      <p>Autor</p>
+    </div>
+    <div class="col-3 text-center">
+      <p>Tytuł</p>
+    </div>
+    <div class="col-3 text-center">
+      <p>Rok wydania</p>
+    </div>
+    <div class="col-3 text-center">
+      <p>Gatunek</p>
+    </div>
+    <div class="col-12 test" *ngFor="let book of books">
+      <div class="row book-card" routerLink="/book-detail/{{book.id}}">
+        <div class="col-3">
+          <p>{{book.author}}</p>
+        </div>
+        <div class="col-3">
+          <p>{{book.name}}</p>
+        </div>
+        <div class="col-3">
+          <p>{{book.date}}</p>
+        </div>
+        <div class="col-3">
+          <p>{{book.type}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
