@@ -9,7 +9,7 @@ import {BookService} from "../../../services/book.service";
 })
 export class BookComponent implements OnInit {
   public onebook:any;
-
+  public auth:any;
   constructor(public router: ActivatedRoute, public bookservice:BookService, private route:Router) { }
 
   ngOnInit(): void {
