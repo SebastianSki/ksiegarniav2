@@ -9,7 +9,6 @@ import {BookService} from "../../../services/book.service";
 })
 export class BookComponent implements OnInit {
   public onebook:any;
-  public upbook:any;
 
   constructor(public router: ActivatedRoute, public bookservice:BookService, private route:Router) { }
 
@@ -27,7 +26,7 @@ export class BookComponent implements OnInit {
   updateBook(id:number, author:string, name:string, date:string, type:string){
     this.bookservice.updateBook(id, author, name, date, type).subscribe((data:any ) => {
       this.onebook = data;
-      console.log(data);
     })
+    this.route.navigate(['/']);
   }
 }
