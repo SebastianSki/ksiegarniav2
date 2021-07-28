@@ -1,0 +1,55 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
+  </a>
+</nav>
+
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active">
+              <i class="fas fa-user"></i>User Profile
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="authService.signOut()">
+              <i class="fas fa-sign-out-alt"></i>Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+
+        <div class="pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">User Profile</h1>
+        </div>
+        <!-- Show user data when logged in -->
+        <div class="row" *ngIf="authService.user$ | async as user">
+          <div class="col-md-12">
+            <div class="media">
+              <div class="media-body">
+              <p>{{user.uid}}</p>
+                <p>{{user.email}}</p>
+                <div class="name-card d-flex">
+                  <p>{{user.displayName}}</p> <button (click)="showChangeName()">zmiana</button> <input type="text" class="mx-3" *ngIf="changeName" [(ngModel)]="user.displayName" style="width:250px;">
+                </div>
+              <p>{{user.emailVerified}}</p>
+                <button class="btn btn-dark" (click)="updateName(user.uid, user.email, user.displayName, user.emailVerified)">Zapisz dane</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

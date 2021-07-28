@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="text-center">
+    <div class="login-card">
+      <h2>Logowanie</h2>
+      <div class="email-card">
+        <input type="email" class=" input-test my-2 p-1" placeholder="Email Address" #userEmail required>
+      </div>
+      <div class="pwd-card">
+        <input type="password" class="input-test my-2 p-1" placeholder="Password" #userPwd required>
+      </div>
+      <button type="button" class="btn btn-primary my-3" (click)="authService.signIn(userEmail.value, userPwd.value)">
+        Zaloguj się
+      </button>
+
+      <span class="d-block">or</span>
+
+      <button type="button" class="btn btn-outline-info my-2" (click)="authService.googleSigin()">
+        <i class="fab fa-google"></i>
+        Kontynuuj z kontem Google
+      </button>
+
+      <span class="redirect-text d-block" routerLink="/recovery-pass">Zapomniałeś hasła?</span>
+
+      <span class="d-block">Nie masz jeszcze konta?</span>
+      <span class="redirect-text d-block" routerLink="/register">Załóż konto</span>
+    </div>
+  </div>
+</div>

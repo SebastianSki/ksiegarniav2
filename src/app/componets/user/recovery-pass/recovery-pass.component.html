@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="text-center">
+    <div class="reset-card">
+      <h2>Resetowanie hasła</h2>
+
+      <div class="email-card">
+        <p>Podaj e-mail, który został użyty do zrobienia konta - wyślemy tam nowe hasło</p>
+        <input type="email" class="formControl input-test my-2 p-1" placeholder="Email Address" #passwordResetEmail required>
+      </div>
+      <button type="button" class="btn btn-primary my-3" (click)="authService.forgotPassword(passwordResetEmail.value)">
+        Reset hasła
+      </button>
+
+      <span class="redirect-text-pointer d-block" routerLink="/login">Powrót do logowania</span>
+    </div>
+  </div>
+</div>
+

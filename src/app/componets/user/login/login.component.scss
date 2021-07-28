@@ -1,0 +1,19 @@
+.input-test{
+  border-radius:4px;
+  border:1px solid black;
+}
+.redirect-text{
+  cursor: pointer;
+  font-size:16px;
+  transition: transform ease-in-out 300ms;
+  width: 100px;
+  margin: 0 auto;
+  &:hover{
+    transition: transform ease-in-out 300ms;
+    transform: scale(2,2);
+  }
+}
+
+.redirect-text-pointer{
+  cursor: pointer;
+}

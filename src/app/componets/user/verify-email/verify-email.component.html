@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="text-center">
+    <div class="verify-card" *ngIf="authService.user$ | async as user">
+      <h2>Weryfikacja konta</h2>
+
+      <div class="text-card">
+        <p>Dziekuję za założenie konta na podany e-mail:{{user.email}}, wysłaliśmy mail potwierdzający.</p>
+        <input type="email" class="formControl input-test my-2 p-1" placeholder="Email Address" #verifyEmail required>
+      </div>
+      <p class="d-block"> Nie dotarł mail potwierdzający?</p>
+      <button type="button" class="btn btn-primary my-3" (click)="authService.sendVerificationMail(verifyEmail.value)">
+        Wyślij ponownie
+      </button>
+      <button type="button" class="btn btn-primary my-3" (click)="authService.confirmMail(isConfirmed)">
+        Potwierdź e-mail
+      </button>
+
+      <span class="redirect-text-pointer d-block" routerLink="/login">Powrót do logowania</span>
+    </div>
+  </div>
+</div>
+

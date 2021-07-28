@@ -10,33 +10,19 @@ import { SpisComponent } from './componets/spis/spis.component';
 import { BookComponent } from './componets/books/book/book.component';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { AuthService } from "./services/auth.service";
 import { LoginComponent } from './componets/user/login/login.component';
 import { RegisterComponent } from './componets/user/register/register.component';
+import { RecoveryPassComponent } from './componets/user/recovery-pass/recovery-pass.component';
+import { VerifyEmailComponent } from './componets/user/verify-email/verify-email.component';
+import { DashboardComponent } from './componets/user/dashboard/dashboard.component';
 
 
-const routes:Routes = [
-  {
-    path:'',
-    component:SpisComponent
-  },
-  {
-    path:'addbook',
-    component:AddbookComponent
-  },
-  {
-    path:'book-detail/:id',
-    component:BookComponent
-  },
-  {
-    path:'login',
-    component:LoginComponent
-  },
-  {
-    path:'register',
-    component:RegisterComponent
-  }
 
-]
 
 @NgModule({
   declarations: [
@@ -47,15 +33,23 @@ const routes:Routes = [
     BookComponent,
     LoginComponent,
     RegisterComponent,
+    RecoveryPassComponent,
+    VerifyEmailComponent,
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
+    RouterModule,
     FormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
