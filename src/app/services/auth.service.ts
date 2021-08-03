@@ -12,9 +12,9 @@ import {switchMap } from "rxjs/operators";
 })
 
 export class AuthService {
-  // userData: any; // Save logged in user data
+
   actionCodeSettings = {
-    url: 'http://localhost:4200/dashboard',
+    url: 'http://localhost:4200/confirm-email',
     handleCodeInApp: true
   }
 
@@ -50,18 +50,29 @@ export class AuthService {
     {
       const provider = new auth.GoogleAuthProvider();
       const credential = await this.afAuth.signInWithPopup(provider);
-      return this.setUserData(credential.user);
+      await this.setUserData(credential.user);
+      return this.router.navigate(['/dashboard']);
     }
 
-    async signIn(email:any, password:any) {
-      await this.afAuth.signInWithEmailAndPassword(email, password)
-        .then((value:any) => {
-          this.setUserData(value.user);
-          console.log(email, password);
-          this.router.navigate(['/dashboard']);
-        }).catch((error:any) => {
-        window.alert(error + 'jebło coś w chuj');
-      });
+    // async signIn(email:any, password:any) {
+    //   await this.afAuth.signInWithEmailAndPassword(email, password)
+    //     .then((value:any) => {
+    //       this.setUserData(value.user);
+    //       console.log(email, password);
+    //       this.router.navigate(['/dashboard']);
+    //     }).catch((error:any) => {
+    //     window.alert(error + 'jebło coś w chuj');
+    //   });
+    // }
+
+    async signIn(email:any, password:any){
+      try{
+       const value = await this.afAuth.signInWithEmailAndPassword(email, password);
+       await this.setUserData(value.user);
+       await this.router.navigate(['/dashboard']);
+      } catch (error){
+        throw new Error(error);
+      }
     }
 
     async signUp(email:any, password:any) {
@@ -91,10 +102,14 @@ export class AuthService {
         window.alert(error + 'no jebło')
       })
   }
-  confirmMail(isConfirmed:any){
-    if(isConfirmed != false){
-      console.log('potwierdzono mail');
+  confirmMail(user:any, isConfirmed:any){
+    if(isConfirmed){
+      user.emailVerified = true;
+      this.setUserData(user);
+    } else if(!isConfirmed){
+      user.emailVerified = false;
     }
+    return false;
   }
   async signOut(){
     await this.afAuth.signOut();
@@ -102,7 +117,7 @@ export class AuthService {
     }
 
     isLoggedIn(user:any): boolean {
-    return (user.emailVerified != false)  ? true : false;
+      return !(!user && !user.emailVerified);
   }
 
   // Auth logic to run auth providers
@@ -117,7 +132,7 @@ export class AuthService {
   //       window.alert(error)
   //     })
   // }
-  async updateUserData(uid:any,email:any, displayName:any, emailVerified:any){
+   updateUserData(uid:any,email:any, displayName:any, emailVerified:any){
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${uid}`);
     const value: User = {
       uid: uid,

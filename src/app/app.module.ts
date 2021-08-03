@@ -20,6 +20,7 @@ import { RegisterComponent } from './componets/user/register/register.component'
 import { RecoveryPassComponent } from './componets/user/recovery-pass/recovery-pass.component';
 import { VerifyEmailComponent } from './componets/user/verify-email/verify-email.component';
 import { DashboardComponent } from './componets/user/dashboard/dashboard.component';
+import { ConfirmEmailComponent } from './componets/user/confirm-email/confirm-email.component';
 
 
 
@@ -36,6 +37,7 @@ import { DashboardComponent } from './componets/user/dashboard/dashboard.compone
     RecoveryPassComponent,
     VerifyEmailComponent,
     DashboardComponent,
+    ConfirmEmailComponent,
 
   ],
   imports: [

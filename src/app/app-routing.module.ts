@@ -11,6 +11,7 @@ import { RecoveryPassComponent } from "./componets/user/recovery-pass/recovery-p
 import { VerifyEmailComponent } from "./componets/user/verify-email/verify-email.component";
 
 import { AuthGuard } from "./services/guard/auth.guard";
+import {ConfirmEmailComponent} from "./componets/user/confirm-email/confirm-email.component";
 
 const routes:Routes = [
   { path:'', component: SpisComponent },
@@ -21,6 +22,7 @@ const routes:Routes = [
   { path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
   { path:'recovery-pass', component: RecoveryPassComponent },
   { path:'verify-email', component: VerifyEmailComponent },
+  { path:'confirm-email', component: ConfirmEmailComponent },
 
 
 ]

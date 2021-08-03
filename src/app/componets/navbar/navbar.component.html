@@ -2,7 +2,10 @@
   <div class="container justify-content-center">
     <a class="nav-link link-hover" routerLinkActive="link-active" routerLink="">Spis książek</a>
     <a class="nav-link link-hover" routerLinkActive="link-active" routerLink="/addbook">Dodaj książkę</a>
-    <a class="nav-link link-hover" routerLinkActive="link-active" routerLink="/login">Logowanie</a>
+    <a class="nav-link link-hover" routerLinkActive="link-active" routerLink="/login" *ngIf="authService.user$ | async as user; else register">Logowanie</a>
+    <ng-template #register>
+      <a class="nav-link link-hover" routerLinkActive="link-active" routerLink="/register">Rejestracja</a>
+    </ng-template>
     <p>wyszukiwarka</p>
   </div>
 </nav>
