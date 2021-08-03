@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="text-center">
+    <div class="verify-card" *ngIf="authService.user$ | async as user">
+      <h2>Weryfikacja konta</h2>
+
+      <button type="button" class="btn btn-primary my-3" (click)="authService.confirmMail(user, isConfirmed)">
+        Potwierdź e-mail
+      </button>
+
+      <span class="redirect-text-pointer d-block" routerLink="/login">Powrót do logowania</span>
+    </div>
+  </div>
+</div>
+
