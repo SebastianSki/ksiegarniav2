@@ -23,8 +23,8 @@ export class BookComponent implements OnInit {
     });
     this.route.navigate(['/']);
   }
-  updateBook(id:number, author:string, name:string, date:string, type:string){
-    this.bookservice.updateBook(id, author, name, date, type).subscribe((data:any ) => {
+  updateBook(id:number, author:string, name:string, date:string, type:string, rating:string){
+    this.bookservice.updateBook(id, author, name, date, type, rating).subscribe((data:any ) => {
       this.onebook = data;
     })
     this.route.navigate(['/']);

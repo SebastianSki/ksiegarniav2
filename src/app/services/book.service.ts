@@ -19,16 +19,16 @@ export class BookService {
     return this.http.get(this.BASE_URL + '/book/' + id);
   }
 
-  addBook(author:any, name:any, date:any, type:any){
-    return this.http.post(this.BASE_URL + '/add', {author, name, date, type});
+  addBook(author:any, name:any, date:any, type:any, rating:any, cover:any){
+    return this.http.post(this.BASE_URL + '/add', {author, name, date, type, rating, cover});
   }
 
   deleteBook(id:number | null | string){
     return this.http.get(this.BASE_URL + '/delete/' + id);
   }
 
-  updateBook(id:any, author:any, name:any, date:any, type:any){
-    return this.http.post(this.BASE_URL + '/update/', {id, author, name, date, type});
+  updateBook(id:any, author:any, name:any, date:any, type:any, rating:any){
+    return this.http.post(this.BASE_URL + '/update/', {id, author, name, date, type, rating});
   }
 
 }

@@ -1,5 +1,7 @@
 <div class="container d-flex flex-column" *ngIf="onebook.id != undefined">
-  <div class="d-flex">
+  <div class="d-flex flex-column">
+
+    <img src="{{onebook.cover}}" alt="">
     <p>Autor:
     <input type="text" class="mx-2" [(ngModel)]="onebook.author" style="width:250px;">
     </p>
@@ -16,9 +18,13 @@
       <input type="text" class="mx-2" [(ngModel)]="onebook.type" style="width:250px;">
     </p>
 
+    <p>Ocena:
+      <input type="text" class="mx-2" [(ngModel)]="onebook.rating" style="width:250px;">
+    </p>
+
   </div>
   <div class="justify-content-center">
-    <button class="btn btn-info my-3" (click)="this.updateBook(onebook.id, onebook.author, onebook.name, onebook.date, onebook.type)">Zaaktualizuj książkę</button>
+    <button class="btn btn-info my-3" (click)="this.updateBook(onebook.id, onebook.author, onebook.name, onebook.date, onebook.type, onebook.rating)">Zaaktualizuj książkę</button>
     <button class="btn btn-danger my-3" (click)="this.deleteBook()">Usuń książkę</button>
   </div>
 </div>
