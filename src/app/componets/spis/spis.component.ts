@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookService} from "../../services/book.service";
+import { BookService } from "../../services/book.service";
 
 @Component({
   selector: 'app-spis',
@@ -8,18 +8,15 @@ import {BookService} from "../../services/book.service";
 })
 export class SpisComponent implements OnInit {
 
-  constructor(public bookService:BookService) { }
+  constructor(public bookService:BookService, ) {
+
+  }
   public books:any;
+  searchValue:string = "";
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((data:any) => {
       this.books = data;
     })
   }
-
-
-
-
-
-
 }

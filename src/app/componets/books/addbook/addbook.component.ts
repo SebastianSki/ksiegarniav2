@@ -20,6 +20,5 @@ export class AddbookComponent implements OnInit {
 
   addBook(author:string, name:string, date:string, type:string ){
     this.bookService.addBook(author, name, date, type).subscribe(r => this.alert = r);
-
   }
 }

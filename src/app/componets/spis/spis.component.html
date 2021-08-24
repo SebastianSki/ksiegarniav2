@@ -1,4 +1,5 @@
 <div *ngIf="books != undefined" class="container">
+  <input [(ngModel)]="searchValue" placeholder="Search">
   <div class="row title-card">
     <div class="col-3 text-center">
       <p>Autor</p>
@@ -12,7 +13,7 @@
     <div class="col-3 text-center">
       <p>Gatunek</p>
     </div>
-    <div class="col-12 test" *ngFor="let book of books">
+    <div class="col-12 test" *ngFor="let book of books | filter: searchValue">
       <div class="row book-card" routerLink="/book-detail/{{book.id}}">
         <div class="col-3">
           <p>{{book.author}}</p>

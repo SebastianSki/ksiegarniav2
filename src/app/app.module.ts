@@ -12,6 +12,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginComponent } from './componets/user/login/login.component';
 import { RegisterComponent } from './componets/user/register/register.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 const routes:Routes = [
@@ -47,6 +48,7 @@ const routes:Routes = [
     BookComponent,
     LoginComponent,
     RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ const routes:Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
