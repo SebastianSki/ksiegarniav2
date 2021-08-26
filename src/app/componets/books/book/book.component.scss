@@ -1,0 +1,45 @@
+
+@media all and (min-width:992px){
+  .grid-site{
+    display:grid;
+    grid-template-columns: 15rem repeat(2, 1fr) 15rem;
+    grid-template-rows: 10rem 1fr 10rem;
+    .book-card{
+      background: #BACBA9;
+      padding:1.5rem;
+      box-shadow: 0px 0px 1px 3px #BACBA9;
+      border-radius: 2.5rem;
+      grid-row: 2;
+      grid-column: 2 / 4;
+      .book-cover{
+        width:100%;
+        border-radius: 4rem;
+      }
+    }
+    .book-card-btns{
+      grid-row: 3;
+      grid-column: 3;
+      .book-btn{
+        color: #212529;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        transition: color .15s;
+      }
+      .add{
+        background-color: var(--accentOrange);
+      }
+      .update{
+        background-color: var(--lightBlue);
+      }
+    }
+  }
+
+
+}

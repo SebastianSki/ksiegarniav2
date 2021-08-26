@@ -1,30 +1,36 @@
-<div class="container d-flex flex-column" *ngIf="onebook.id != undefined">
-  <div class="d-flex flex-column">
+<div class="grid-site">
+  <div class="container row mx-auto book-card" *ngIf="onebook.id != undefined">
+    <div class="col-md-6">
+      <img class="img-fluid w-auto book-cover" src="{{onebook.cover}}" alt="okladka ksiazki">
+    </div>
+    <div class="d-flex flex-column col-md-6">
+      <p>Autor:
+        <input type="text" class="mx-2" [(ngModel)]="onebook.author" style="width:250px;">
+      </p>
 
-    <img src="{{onebook.cover}}" alt="">
-    <p>Autor:
-    <input type="text" class="mx-2" [(ngModel)]="onebook.author" style="width:250px;">
-    </p>
+      <p>Tytuł:
+        <input type="text" class="mx-2" [(ngModel)]="onebook.name" style="width:250px;">
+      </p>
 
-    <p>Tytuł:
-      <input type="text" class="mx-2" [(ngModel)]="onebook.name" style="width:250px;">
-    </p>
+      <p>Rok wydania:
+        <input type="text" class="mx-2" [(ngModel)]="onebook.date" style="width:250px;">
+      </p>
 
-    <p>Rok wydania:
-      <input type="text" class="mx-2" [(ngModel)]="onebook.date" style="width:250px;">
-    </p>
+      <p>Gatunek:
+        <input type="text" class="mx-2" [(ngModel)]="onebook.type" style="width:250px;">
+      </p>
 
-    <p>Gatunek:
-      <input type="text" class="mx-2" [(ngModel)]="onebook.type" style="width:250px;">
-    </p>
+      <p>Ocena:
+        <input type="text" class="mx-2" [(ngModel)]="onebook.rating" style="width:250px;">
+      </p>
 
-    <p>Ocena:
-      <input type="text" class="mx-2" [(ngModel)]="onebook.rating" style="width:250px;">
-    </p>
-
+    </div>
   </div>
-  <div class="justify-content-center">
-    <button class="btn btn-info my-3" (click)="this.updateBook(onebook.id, onebook.author, onebook.name, onebook.date, onebook.type, onebook.rating)">Zaaktualizuj książkę</button>
-    <button class="btn btn-danger my-3" (click)="this.deleteBook()">Usuń książkę</button>
+  <div class="book-card-btns">
+    <button class="book-btn update m-1 m-md-2"
+            (click)="this.updateBook(onebook.id, onebook.author, onebook.name, onebook.date, onebook.type, onebook.rating)">
+      Zaaktualizuj książkę
+    </button>
+    <button class="book-btn add m-1 m-md-2" (click)="this.deleteBook()">Usuń książkę</button>
   </div>
 </div>
