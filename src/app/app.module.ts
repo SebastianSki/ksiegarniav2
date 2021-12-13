@@ -15,6 +15,7 @@ import { RegisterComponent } from './componets/user/register/register.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
+
 const routes:Routes = [
   {
     path:'',

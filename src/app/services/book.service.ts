@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class BookService {
-  BASE_URL:string = "http://localhost:8000";
+  BASE_URL:string = "http://localhost:5001";
 
 
   constructor(public http:HttpClient) {
@@ -16,7 +16,7 @@ export class BookService {
   }
 
   getBook(id:number | null | string){
-    return this.http.get(this.BASE_URL + '/book/' + id);
+    return this.http.get(this.BASE_URL + '/books/' + id);
   }
 
   addBook(author:any, name:any, date:any, type:any, rating:any, cover:any){
